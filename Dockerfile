@@ -10,10 +10,10 @@ RUN apk add --no-cache bash curl alpine-sdk perl openssl openssl-dev ncurses ncu
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch $ASDF_VERSION && \
     asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git && \
     asdf install erlang $ERLANG_VERSION && \
-    asdf global erlang $ERLANG_VERSION && \
+    asdf global  erlang $ERLANG_VERSION && \
     asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git && \
     asdf install elixir $ELIXIR_VERSION && \
-    asdf global elixir $ELIXIR_VERSION && \
+    asdf global  elixir $ELIXIR_VERSION && \
     yes | mix local.hex --force && \
     yes | mix local.rebar --force && \
     pip install --no-cache-dir python-dateutil && \
