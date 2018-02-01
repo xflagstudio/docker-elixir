@@ -1,10 +1,10 @@
 FROM alpine:3.7
 
-ENV ELIXIR_VERSION "1.5.2"
+ENV ELIXIR_VERSION "1.6.0-otp-20"
 ENV ERLANG_VERSION "20.2"
 ENV ASDF_VERSION   "v0.4.1"
 
-RUN apk add --no-cache bash curl alpine-sdk perl openssl openssh-client openssl-dev ncurses ncurses-dev unixodbc unixodbc-dev python py-pip py-setuptools git ca-certificates nodejs && \
+RUN apk add --no-cache autoconf bash curl alpine-sdk perl openssl openssh-client openssl-dev ncurses ncurses-dev unixodbc unixodbc-dev python py-pip py-setuptools git ca-certificates nodejs && \
     export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH" && \
     echo "PATH=$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH" >> /root/.profile && \
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch $ASDF_VERSION && \
