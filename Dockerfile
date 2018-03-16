@@ -1,7 +1,7 @@
 FROM alpine:3.7
 
 ENV ELIXIR_VERSION "1.6.3-otp-20"
-ENV ERLANG_VERSION "20.2"
+ENV ERLANG_VERSION "20.3"
 ENV ASDF_VERSION   "v0.4.1"
 
 RUN apk add --no-cache autoconf bash curl alpine-sdk perl openssl openssh-client openssl-dev ncurses ncurses-dev unixodbc unixodbc-dev python py-pip py-setuptools git ca-certificates nodejs && \
