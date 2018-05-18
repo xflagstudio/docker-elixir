@@ -1,13 +1,16 @@
-FROM alpine:3.7
+FROM amazonlinux:1
 
 ENV ELIXIR_VERSION "1.6.5-otp-20"
 ENV ERLANG_VERSION "20.3"
 ENV ASDF_VERSION   "v0.4.1"
+ENV ASDF_DIR /opt/asdf
+ENV PATH "/opt/asdf/bin:/opt/asdf/shims:$PATH"
 
-RUN apk add --no-cache autoconf bash curl alpine-sdk perl openssl openssh-client openssl-dev ncurses ncurses-dev unixodbc unixodbc-dev python py-pip py-setuptools git ca-certificates nodejs && \
-    export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH" && \
-    echo "PATH=$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH" >> /root/.profile && \
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch $ASDF_VERSION && \
+RUN yum groupinstall -y 'Development Tools' && \
+    yum install -y automake autoconf readline-devel openssl-devel ncurses-devel unixODBC-devel libyaml-devel libxslt-devel libffi-devel libtool ca-certificates git unzip which perl python27-pip bash && \
+    curl --silent --location https://rpm.nodesource.com/setup_8.x | bash - && \
+    yum install -y nodejs && \
+    git clone https://github.com/asdf-vm/asdf.git /opt/asdf --branch $ASDF_VERSION && \
     asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git && \
     asdf install erlang $ERLANG_VERSION && \
     asdf global  erlang $ERLANG_VERSION && \
@@ -20,4 +23,3 @@ RUN apk add --no-cache autoconf bash curl alpine-sdk perl openssl openssh-client
     git clone https://github.com/s3tools/s3cmd.git /opt/s3cmd && \
     ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd
 
-ENTRYPOINT sh --login
