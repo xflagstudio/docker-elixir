@@ -1,8 +1,8 @@
 FROM amazonlinux:1
 
-ENV ELIXIR_VERSION "1.6.5-otp-20"
-ENV ERLANG_VERSION "20.3"
-ENV ASDF_VERSION   "v0.4.1"
+ENV ELIXIR_VERSION "1.6.6-otp-21"
+ENV ERLANG_VERSION "21.0"
+ENV ASDF_VERSION   "v0.5.0"
 ENV ASDF_DIR /opt/asdf
 ENV PATH "/opt/asdf/bin:/opt/asdf/shims:$PATH"
 
@@ -22,4 +22,3 @@ RUN yum groupinstall -y 'Development Tools' && \
     pip install --no-cache-dir python-dateutil && \
     git clone https://github.com/s3tools/s3cmd.git /opt/s3cmd && \
     ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd
-
