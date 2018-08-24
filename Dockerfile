@@ -1,8 +1,8 @@
-FROM alpine:3.7
+FROM alpine:3.8
 
-ENV ELIXIR_VERSION "1.6.6-otp-21"
+ENV ELIXIR_VERSION "1.7.2-otp-21"
 ENV ERLANG_VERSION "21.0"
-ENV ASDF_VERSION   "v0.5.0"
+ENV ASDF_VERSION   "v0.5.1"
 
 RUN apk add --no-cache autoconf bash curl alpine-sdk perl openssl openssh-client openssl-dev ncurses ncurses-dev unixodbc unixodbc-dev python py-pip py-setuptools git ca-certificates nodejs libxslt libxml2-utils && \
     export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH" && \
