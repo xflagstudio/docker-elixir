@@ -1,0 +1,8 @@
+FROM xflagstudio/docker-elixir:1.8.1e21.0_amzn
+
+RUN yum install -y java-1.8.0-openjdk-headless.x86_64 && \
+  mkdir -p dynamodb_local && \
+  cd dynamodb_local && \
+  curl -O https://s3-ap-northeast-1.amazonaws.com/dynamodb-local-tokyo/dynamodb_local_latest.tar.gz && \
+  tar zxvf dynamodb_local_latest.tar.gz && \
+  rm -f dynamodb_local_latest.tar.gz
