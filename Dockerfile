@@ -10,7 +10,7 @@ ENV PATH "/opt/asdf/bin:/opt/asdf/shims:$PATH"
 
 RUN yum groupinstall -y 'Development Tools' && \
     yum install -y automake autoconf readline-devel openssl-devel ncurses-devel unixODBC-devel libyaml-devel libxslt-devel libffi-devel libtool ca-certificates git unzip which perl python27-pip bash && \
-    curl --silent --location https://rpm.nodesource.com/setup_8.x | bash - && \
+    curl --silent --location https://rpm.nodesource.com/setup_12.x | bash - && \
     yum install -y nodejs && \
     git clone https://github.com/asdf-vm/asdf.git /opt/asdf --branch $ASDF_VERSION && \
     asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git && \
