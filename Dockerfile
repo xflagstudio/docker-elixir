@@ -3,7 +3,7 @@ FROM amazonlinux:1
 ENV LANG en_US.UTF-8
 
 ENV ELIXIR_VERSION "1.9.1-otp-22"
-ENV ERLANG_VERSION "22.0"
+ENV ERLANG_VERSION "22.3.4.11"
 ENV ASDF_VERSION   "v0.5.1"
 ENV ASDF_DIR /opt/asdf
 ENV PATH "/opt/asdf/bin:/opt/asdf/shims:$PATH"
